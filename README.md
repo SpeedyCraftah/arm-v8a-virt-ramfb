@@ -1,5 +1,5 @@
 # arm-v8a-virt-ramfb
-This simple project provides an example of how you can get a simple framebuffer working for Qemu's Virt machine emulating an aarch64 processor with numerous different pixel format/resolutions you can choose from.
+This simple project provides an example of how you can get a simple framebuffer working for Qemu's Virt machine emulating an aarch64 processor with numerous different pixel format/resolutions you can choose from, all included in one implementation file for simplicity.
 
 
 ## Motivation
