@@ -57,7 +57,9 @@ If everything went to plan, you should see Qemu with a red screen:
 ramfb is meant to be an extremely basic graphics solution, Qemu recommends against using it for any practical reasons other than small graphics or testing as it will result in extremely poor performance due to the framebuffer being updated on every single pixel update.
 For more serious uses, you should opt into using a GPU backed framebuffer using something along the lines of the Virtio/MailBox API, which can be quite complicated for beginners and so a library is recommended.
 
-## Motivation
+## Footnotes
 I was looking for a simple framebuffer implementation when I was learning Arm and want to research certain aspects of it, and to do this needed a simple framebuffer/display driver working, but was surprised at how scarce these resources and documentation are, particularly when using the generic Qemu machine, Virt which is a generic Arm board which supports numerous different Arm processors, in this case the Cortex A72.
 
 The only resources I could really find are some vague posts and the [SeaBios implementation of ramfb](https://github.com/qemu/seabios/blob/master/vgasrc/ramfb.c), however this was written for X86 and ways of interacting with Qemu's firmware config is a little different for Arm, and as a result wanted to write a simple barebones example for others in a similar position that just want to get a simple framebuffer working without having to understand all of Qemu's intrinsics (like I unfortunately had to do).
+
+This [Qemu documentation](https://www.qemu.org/docs/master/specs/fw_cfg.html) was also very helpful in understanding the `fw_cfg` interface and setting this whole thing up, although does not explain how you can get DMA access working with Arm and gives pointers on how you can do it.
