@@ -37,7 +37,7 @@ This simple project provides an example of how you can get a simple framebuffer 
 
 ## How To Compile & Run?
 - Download the latest aarch64 compiler toolchain from the [Arm Developer website](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads).
-  - If you are using Linux, you must install it manually and cannot install it through your package managers repository as they contain outdated binaries.
+  - If you are using Linux, you must install it manually and cannot install it through your package manager's repository as they contain outdated binaries.
   - Ensure you have and are able to use `aarch64-none-elf-gcc`, `aarch64-none-elf-ld` and `aarch64-none-elf-as`.
 - Download and install Qemu's aarch64 virtual machine (`qemu-system-aarch64`).
 
@@ -63,3 +63,5 @@ I was looking for a simple framebuffer implementation when I was learning Arm an
 The only resources I could really find are some vague posts and the [SeaBios implementation of ramfb](https://github.com/qemu/seabios/blob/master/vgasrc/ramfb.c), however this was written for X86 and ways of interacting with Qemu's firmware config is a little different for Arm, and as a result wanted to write a simple barebones example for others in a similar position that just want to get a simple framebuffer working without having to understand all of Qemu's intrinsics (like I unfortunately had to do).
 
 This [Qemu documentation](https://www.qemu.org/docs/master/specs/fw_cfg.html) was also very helpful in understanding the `fw_cfg` interface and setting this whole thing up, although does not explain how you can get DMA access working with Arm and gives pointers on how you can do it.
+
+This [segment in Qemu's repository](https://github.com/qemu/qemu/blob/master/hw/arm/virt.c#L137) outlines all of the memory maps for the aarch64 Virt platform, in this case the one of interest is the `fw_cfg` registers map.
