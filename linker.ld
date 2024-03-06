@@ -11,7 +11,7 @@ SECTIONS {
     .data   : { *(.data) }
     .bss    : { *(.bss COMMON) }
  
-    /* Qemu's Virt platform starts general RAM at 1GB+ and so we have to place our stack there, in this case at 1GB + 8KB */
+    /* Qemu's Virt platform starts general RAM at 1GB+ and so we have to place our stack there, in this case at 1GB - 1GB+8KB */
     STACK_BASE = .;
     . += 0x40000000 + 8192;
     STACK_TOP = .;
