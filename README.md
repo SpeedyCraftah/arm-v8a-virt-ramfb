@@ -42,6 +42,7 @@ This simple project provides an example of how you can get a simple framebuffer 
 - Download and install Qemu's aarch64 virtual machine (`qemu-system-aarch64`).
 
 Compile the code with the following (adjust optimization level if needed!):
+- `aarch64-none-elf-as -mcpu=cortex-a72 -march=armv8-a _start.asm -o _start.o`
 - `aarch64-none-elf-g++ -O1 -ffreestanding -nostdlib -o main.o -c main.cpp`
 - `aarch64-none-elf-gcc -O1 -ffreestanding -nostdlib -o ramfb.o -c ramfb.c`
 - `aarch64-none-elf-ld -T linker.ld _start.o main.o -o kernel.elf`
